@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <link rel="shortcut icon" href="./img/ico/login/favicon.ico" type="image/x-icon"> 
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <div class="form-login">
+        <div class="title-login">
+            <h1>Login</h1>
+        </div>
+
+        <div class="box">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email">
+            <span class="errorMessage"></span>
+        </div>
+
+        <div class="box">
+            <label for="passWord">Senha:</label>
+            <input type="password"  name="password" id="passWord">
+            <span class="errorMessage"></span>
+        </div>
+        
+        <div class="link-password">
+            <a href="#">Esqueceu sua senha?</a>
+        </div>
+
+        <div class="btn-access">
+            <button type="button" id="btn-entry">Entrar</button>
+        </div>
+    </div>
+
+   
+    <script src="/js/base.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

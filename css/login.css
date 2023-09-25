@@ -1,0 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+:root {
+   
+    --cor-three: #228B22;
+    --cor-four:#006400;
+}
+
+
+
+body {
+    background-color:#006400;
+    background-image:url('../img/background-login.jpg');
+    opacity:0.8;
+    background-position:center;
+    background-repeat:round;
+    background-size:cover;
+
+}
+
+
+
+.box {
+    margin-top: 35px;
+}
+
+.form-login {
+    width: 450px;
+    height: auto;
+    border: 2px solid rgb(204, 204, 204);
+    box-shadow:2px 3px rgba(0, 0, 0, 0.533);
+    margin: 90px auto auto;
+    padding: 40px;
+    border-radius: 14px;
+    background-color:#fff;
+   
+}
+
+.errorMessage {
+    color:red;
+    font-size:0.900rem;
+    
+    font-weight:bolder;
+}
+.title-login{
+    text-align: center;
+    text-transform:uppercase;
+    color:var(--cor-four);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+label {
+    font-family:monospace;
+    font-weight:bold;
+    font-size: 1.1rem;
+    color:var(--cor-four);
+    padding:5px;
+   
+}
+
+input {
+    margin-top:15px;
+}
+
+input, 
+#btn-entry{
+    padding: 8px;
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid #ddd;
+    outline: none;
+    font-weight:bold;
+    
+}
+
+#btn-entry {
+    margin-top: 1.75rem;
+    background-color:#006400;
+    font-family:monospace;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size:1.25rem;
+}
+
+#btn-entry:hover {
+    cursor: pointer;
+    background-color: var(--cor-three);
+}
+
+
+.link-password {
+    text-align: right;
+    font-style: italic;
+    margin-top: 3px;
+   
+}
+
+.link-password a {
+    color:var(--cor-four);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+
