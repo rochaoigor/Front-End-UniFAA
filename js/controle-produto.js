@@ -68,6 +68,7 @@ function getModalProduto() {
 function getProduto() {
     fetch(url, {
         method:'GET',
+        'Content-Type' : 'application/json',
         headers: {
             'Authorization' : obterToken()
         }

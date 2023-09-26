@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col-12">
         <div class="input-group mt-5 ">
-          <input type="text" class="form-control " placeholder="Pesquisar Produto..." aria-label="Pesquisar Cliente" aria-describedby="button-addon2">
+          <input type="text" class="form-control " id="input_search"placeholder="Pesquisar Produto..." aria-label="Pesquisar Cliente" aria-describedby="button-addon2">
           <i class="bi bi-search " id="searchButton"></i>
         </div>
         
@@ -80,12 +80,12 @@
                 <th>Nome</th>
                 <th>Valor</th>
                 <th>Estoque</th>
-                <th>Validade</th>
                 <th>Data de Cadastro</th>
+                <th>Validade</th>
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tableHTML">
 
             </tbody>
           </table>
@@ -137,8 +137,8 @@
                  
                 </div>
                 <div class="col-sm-3">
-                  <label for="valor" class="form-label">Validade</label>
-                  <input type="number" name="valor" id="dataValidade" class="form-control input-number" required="required">
+                  <label for="validade" class="form-label">Validade</label>
+                  <input type="text" name="validade" id="dataValidade" class="form-control " required="required">
               
                 </div>
                 <div class="col-sm-2">
@@ -148,7 +148,7 @@
                 </div>
                 <div class="col-sm-4">
                   <label for="dataCadastro" class="form-label">Data de Cadastro</label>
-                  <input type="date" class="form-control" id="dataCadastro" required="required">
+                  <input type="date" class="form-control" id="dataCadastro" required="required" disabled>
             
                   
                 </div>
@@ -171,6 +171,6 @@
 <script src="js/base.js"></script>
 <script src="js/produto.js"></script>
 <script src="js/controle-produto.js"></script>
-
+<script src="js/evento.js"></script>
 </body>
 </html>

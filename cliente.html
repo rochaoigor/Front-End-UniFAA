@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col-12">
         <div class="input-group mt-5 ">
-          <input type="text" class="form-control " placeholder="Pesquisar Cliente..." aria-label="Pesquisar Cliente" aria-describedby="button-addon2">
+          <input type="text" class="form-control " id="input_search" placeholder="Pesquisar Cliente..." aria-label="Pesquisar Cliente" aria-describedby="button-addon2">
           <i class="bi bi-search " id="searchButton"></i>
         </div>
         
@@ -84,7 +84,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tableHTML">
 
             </tbody>
           </table>
@@ -123,7 +123,7 @@
                   </div>
                   <div class="col-sm-4">
                     <label for="Celular" class="form-label">Celular</label>
-                    <input type="text" class="form-control" id="telefone" name="Celular">
+                    <input type="text" class="form-control input-number" id="telefone" name="Celular">
                     <span class="errorMessage"></span>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
                 <div class="row">
                   <div class="col-sm-4">
                     <label for="cpf" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="cpf" name="cpf">
+                    <input type="text" class="form-control input-number" id="cpf" name="cpf">
                     <span class="errorMessage"></span>
                   </div>
                 <div class="col-sm-4">
@@ -141,7 +141,7 @@
                 </div>
                 <div class="col-sm-4">
                   <label for="dataCadastro" class="form-label">Data de Cadastro</label>
-                  <input type="date" class="form-control" id="dataCadastro" name="dataCadastro">
+                  <input type="date" class="form-control" id="dataCadastro" name="dataCadastro" disabled>
                   
                 </div>
               
@@ -163,6 +163,7 @@
 <script src="js/base.js"></script>
 <script src="js/cliente.js"></script>
 <script src="js/controle-cliente.js"></script>
+<script src="js/evento.js"></script>
 
 </body>
 </html>

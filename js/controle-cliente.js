@@ -8,7 +8,6 @@ let btnSave = document.getElementById('btn-salvar');
 let btnCancel = document.getElementById('btn-cancelar');
 let editMode = false;
 let errorMessage = document.querySelector('.errorMessage')
-
 let formModal = {
     id: document.getElementById('id'),
     telefone: document.getElementById('telefone'),
@@ -17,35 +16,27 @@ let formModal = {
     nome: document.getElementById('nome'),
     dataCadastro:document.getElementById('dataCadastro')
 }
-
 btnAdd.addEventListener('click', () =>{
     editMode = false;
     modalTitle.textContent = 'Adicionar Cliente'
     cleanModal()
     modalClient.show()
 })
-
 btnSave.addEventListener('click', () => {
     let cliente = getModalClient();
 
     if(!cliente.email || !cliente.cpfOuCnpj) {
         return errorMessage.innerHTML = 'Os campos e-mail e cpf  não podem estar vazios';
     }
-
 if(editMode) {
     attClientBackEnd(cliente);
 }else {
     addClientBackEnd(cliente);
-}
-
-    
-   
+} 
 })
-
 btnCancel.addEventListener('click', () => {
     modalClient.hide();
 })
-
 function getModalClient() {
     return new Cliente ({
        id: formModal.id.value,
@@ -54,17 +45,15 @@ function getModalClient() {
        nome:formModal.nome.value,
        telefone: formModal.telefone.value,
        dataCadastro:(formModal.dataCadastro.value) ? new Date(formModal.dataCadastro.value).toISOString() : new Date().toISOString()
-    })
-    
+    })  
 }
-
 function getClient() {
     fetch(url, {
         method:'GET',
+        'Content-Type' : 'application/json',
         headers: {
             'Authorization': obterToken()
         }
-
     })
     .then(response => response.json())
     .then(clientes => {
@@ -72,21 +61,16 @@ function getClient() {
         createTable(clientes)
     })
     .catch() 
-        
-    
 }
-
 function editEvent(id) {
     editMode = true;
     modalTitle.textContent = 'Editar Cliente';
     let cliente = clientStorage.find(cliente => cliente.id == id);
-
     attModal(cliente)
     modalClient.show()
     //alert(`Editar Cliente ` + '' + id);
 
 }
-
 function attModal(cliente) {
     formModal.id.value = cliente.id
     formModal.cpf.value = cliente.cpfOuCnpj
@@ -95,7 +79,6 @@ function attModal(cliente) {
     formModal.telefone.value = cliente.telefone
     formModal.dataCadastro.value = cliente.dataCadastro.substring(0,10)
 }
-
 function cleanModal() {
     formModal.id.value ='';
     formModal.cpf.value = '';
@@ -104,14 +87,11 @@ function cleanModal() {
     formModal.telefone.value = '';
     formModal.dataCadastro.value = '';
 }
-
 function deleteEvent(id) {
-
     let cliente = clientStorage.find(c => c.id == id);
     if(confirm('Deseja realmente excluir esse cliente? ' +  cliente.nome)) {
        deleteClientBackEnd(cliente)
-    }
-    
+    }  
 }
 function createHTML(cliente)  {
     let tr = document.createElement('tr');
@@ -122,17 +102,13 @@ function createHTML(cliente)  {
     let tdTelefone = document.createElement('td');
     let tdEvents = document.createElement('td');
     let tdDate = document.createElement('td');
-
     tdId.textContent = cliente.id;
     tdName.textContent = cliente.nome;
     tdCpf.textContent = cliente.cpfOuCnpj;
     tdEmail.textContent = cliente.email;
     tdDate.textContent = new Date(cliente.dataCadastro).toLocaleDateString();
     tdTelefone.textContent = cliente.telefone;
-    
-
     tdEvents.innerHTML = `<i class='bi bi-pencil-fill m-2 sm-12'  onclick='editEvent(${cliente.id})'></i> <i class='bi bi-trash m-2 sm-12'  onclick='deleteEvent(${cliente.id})'></i>`
-
     tr.appendChild(tdId);
     tr.appendChild(tdName);
     tr.appendChild(tdCpf);
@@ -143,7 +119,6 @@ function createHTML(cliente)  {
 
     listClient.appendChild(tr)
 }
-
 function createTable(clientes) {
     
     listClient.textContent= "";
@@ -153,10 +128,7 @@ function createTable(clientes) {
     });
   
 }
-
-
 function addClientBackEnd(cliente) {
-
     cliente.dataCadastro = new Date().toISOString();
 
     fetch(url, {
@@ -181,14 +153,11 @@ function addClientBackEnd(cliente) {
             timer: 2500
         });
     }
-    )
-       
-    
+    )    
     .catch(error => {
         console.log(error);
     })
 }
-
 function attClientBackEnd(cliente){
     fetch(`${url}/${cliente.id}`, {
         method: 'PUT',
@@ -210,16 +179,11 @@ function attClientBackEnd(cliente){
             timer: 2500
         });
     }
-    )
-    
-    
-    
+    )   
     .catch(error => {
         console.log(error);
     })
 }
-
-
     function deleteClientBackEnd(cliente) {
         fetch(`${url}/${cliente.id}`, {
             method: 'DELETE',
@@ -241,16 +205,12 @@ function attClientBackEnd(cliente){
             });
 
         }
-        )
-        
-        
-        
+        )      
         .catch(error => {
             console.log(error);
         })
     }
-
-    
+  
 function attTableClient(cliente, removeClient) {
     let find = clientStorage.findIndex((c) => c.id == cliente.id);
      (removeClient) ? clientStorage.splice(find, 1) : clientStorage.splice(1, find, cliente);
@@ -259,23 +219,4 @@ createTable(clientStorage);
 
   }
 
-
-
 getClient()
-
-
-/*<tbody>
-              <tr>
-                <td>1</td>
-                <td>Fulano da Silva</td>
-                <td>12829785232</td>
-                <td>fulano@gmail.com</td>
-                <td>(21) 99885-5223</td>
-                <td>
-                    <i class='bi bi-pencil-fill m-2' id='editClient'></i>
-
-                    <i class='bi bi-trash m-2' id='deleteClient'></i>
-                </td>
-              </tr>
-            
-            </tbody>*/
