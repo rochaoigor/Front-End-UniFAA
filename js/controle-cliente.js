@@ -213,7 +213,7 @@ function attClientBackEnd(cliente){
   
 function attTableClient(cliente, removeClient) {
     let find = clientStorage.findIndex((c) => c.id == cliente.id);
-     (removeClient) ? clientStorage.splice(find, 1) : clientStorage.splice(1, find, cliente);
+     (removeClient) ? clientStorage.splice(find, 1) : clientStorage.splice(find, 1, cliente);
 
 createTable(clientStorage);
 

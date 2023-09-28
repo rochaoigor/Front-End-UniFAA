@@ -90,6 +90,7 @@ function editEvent(id) {
 
     attModal(produto)
     modalProduto.show()
+    attTableProduto()
     
 
 }
